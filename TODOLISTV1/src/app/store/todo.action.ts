@@ -2,11 +2,6 @@ import { TodoModel } from "./todo.state";
 
 const ACTION_SCOPE = '[Todo]';
 
-// export class GetTodo {
-//     static readonly type = `${ACTION_SCOPE} Get todo`;
-//     constructor(public id: number ) {}
-// }
-
 export class AddTodo {
     static readonly type = `${ACTION_SCOPE} Add`;
     constructor(public title: string) {}
