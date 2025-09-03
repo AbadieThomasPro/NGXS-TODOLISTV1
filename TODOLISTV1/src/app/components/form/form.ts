@@ -27,7 +27,7 @@ export class Form {
 
   add() {
     this.store.dispatch(new AddTodo(this.newTitle)).subscribe(() => {
-      console.log('Ajouté :', this.newTitle);
+      // console.log('Ajouté :', this.newTitle);
       this.newTitle = "";
     });
   }
