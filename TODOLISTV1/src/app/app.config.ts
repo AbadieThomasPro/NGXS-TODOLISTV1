@@ -2,16 +2,14 @@ import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessC
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideStore, NgxsModule } from '@ngxs/store';
+import { NgxsModule } from '@ngxs/store';
 import { TodoState } from './store/todo.state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes), provideStore(
-      [],
-    ),
+    provideRouter(routes),
     importProvidersFrom(
       NgxsModule.forRoot([TodoState])
     )
