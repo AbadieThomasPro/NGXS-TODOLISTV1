@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store, select, createSelectMap } from '@ngxs/store';
 import { TodoModel, TodoState } from '../../store/todo.state';
 import { Observable } from 'rxjs';
+import { ChangeStatus } from '../../store/todo.action';
 
 @Component({
   selector: 'app-list',
@@ -35,4 +36,10 @@ export class List {
   trackById(index: number, item: TodoModel): number {
     return item.id;
   }
+
+
+  change(item: TodoModel) {
+    this.store.dispatch(new ChangeStatus(item, !item.isActive));
+  }
+
 }

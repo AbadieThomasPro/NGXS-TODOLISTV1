@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Action, State, StateContext, Selector, Store } from "@ngxs/store";
-import { AddTodo } from "./todo.action";
+import { AddTodo, ChangeStatus } from "./todo.action";
 
 export interface TodoModel {
     id: number;
@@ -55,5 +55,21 @@ export class TodoState {
             ...state,
             items: [...state.items, newItem]
         })
+    }
+
+    @Action(ChangeStatus)
+    changeStatus(ctx: StateContext<TodoStateModel>, action: ChangeStatus) {
+
+        const state = ctx.getState();
+        const updated = state.items.map( item =>
+            item.id === action.todoItem.id
+            ? {...item, isActive: action.status}
+            : item
+        );
+
+        ctx.setState({
+            ...state,
+            items: updated
+        });
     }
 }
