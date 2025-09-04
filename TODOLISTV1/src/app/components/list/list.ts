@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, createSelectMap } from '@ngxs/store';
 import { TodoModel, TodoState } from '../../store/todo.state';
-import { NgClass } from '@angular/common';
 import { ChangeStatus, DeleteTodo } from '../../store/todo.action';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-list',
@@ -11,18 +11,6 @@ import { ChangeStatus, DeleteTodo } from '../../store/todo.action';
   styleUrl: './list.scss'
 })
 export class List {
-
-  // dropping$: Observable<DroppingModel | undefined> = this.store.select(DroppingState.dropping);
-  // dropping = select(DroppingState.dropping);
-
-  // items$: Observable<TodoModel[]> = this.store.select(TodoState.items);
-  // items = select(TodoState.items);
-
-  // doneItems$ = Observable<TodoModel[]> = this.store.select(TodoState.doneItems);
-
-  // doneItems = select(TodoState.doneItems)
-
-  // activeItems = select(TodoState.activeItems)
 
   selector = createSelectMap({
     items: TodoState.items,

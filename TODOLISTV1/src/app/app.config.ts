@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { TodoState } from './store/todo.state';
 
 export const appConfig: ApplicationConfig = {
@@ -11,7 +12,8 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(routes),
     importProvidersFrom(
-      NgxsModule.forRoot([TodoState])
+      NgxsModule.forRoot([TodoState]),
+      NgxsReduxDevtoolsPluginModule.forRoot()
     )
   ]
 };

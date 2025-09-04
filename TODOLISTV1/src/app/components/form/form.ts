@@ -27,13 +27,7 @@ export class Form {
 
   add() {
     this.store.dispatch(new AddTodo(this.newTitle)).subscribe(() => {
-      // console.log('Ajouté :', this.newTitle);
       this.newTitle = "";
     });
   }
 }
-//on attrape le formulaire avec ViewChild
-// @ViewChild('todoForm') form!: NgForm;
-// this.store.dispatch(new AddTodo(this.newTitle)).subscribe(() => this.form.reset());
-// this.store.dispatch(new AddTodo(this.newTitle));
-// this.newTitle = "";
