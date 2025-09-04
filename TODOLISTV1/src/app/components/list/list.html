@@ -3,16 +3,23 @@
     <div class="compteur">
 
         <div class="doneItems">
-
+            <p>Done items: {{ selector.doneItems()}}</p>
         </div>
 
         <div class="activeItems">
-
+            <p> item(s) to do</p>
         </div>
 
     </div>
     <div class="list">
-
+        @for (item of selector.items(); track trackById($index, item)) {
+            <div class="todo-item" >
+                {{item.title}}
+                <span [class.active]="item.isActive" [class.done]="!item.isActive">
+                    {{ item.isActive ? 'Active' : 'Terminée' }}
+                </span>
+            </div>
+        }
     </div>
 
 </div>

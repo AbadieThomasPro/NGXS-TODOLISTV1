@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Store, select } from '@ngxs/store';
+import { Store, select, createSelectMap } from '@ngxs/store';
 import { TodoModel, TodoState } from '../../store/todo.state';
 import { Observable } from 'rxjs';
 
@@ -19,10 +19,20 @@ export class List {
 
   // doneItems$ = Observable<TodoModel[]> = this.store.select(TodoState.doneItems);
 
-  doneItems = select(TodoState.doneItems)
+  // doneItems = select(TodoState.doneItems)
 
-  activeItems = select(TodoState.activeItems)
+  // activeItems = select(TodoState.activeItems)
+
+  selector = createSelectMap({
+    items: TodoState.items,
+    doneItems: TodoState.doneItems,
+    activeItems: TodoState.activeItems
+  });
+
 
   constructor(private store: Store){}
 
+  trackById(index: number, item: TodoModel): number {
+    return item.id;
+  }
 }
