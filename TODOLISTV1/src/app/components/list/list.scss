@@ -1,0 +1,21 @@
+.content{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+.compteur{
+    display: flex;
+}
+.doneItems{
+    color: rgb(23, 204, 23);
+    flex: auto;
+}
+.activeItems{
+    color: rgb(241, 30, 30);
+}
+.list{
+    padding-top: 3%;
+    // text-align: center;
+    position: relative;
+    left: 40%;
+}

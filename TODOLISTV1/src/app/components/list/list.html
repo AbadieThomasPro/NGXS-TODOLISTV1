@@ -13,11 +13,13 @@
     </div>
     <div class="list">
         @for (item of selector.items(); track trackById($index, item)) {
-            <div class="todo-item" (click)="change(item)" >
-                {{item.title}}
-                <span [class.active]="item.isActive" [class.done]="!item.isActive">
+            <div class="todo-item  align-items-center justify-content-between" (click)="change(item)" >
+                <!-- <span [class.active]="item.isActive" [class.done]="!item.isActive"> -->
+                <span class="badge"
+                [ngClass]="item.isActive ? 'text-bg-warning' : 'text-bg-success' ">
                     {{ item.isActive ? 'Active' : 'Terminée' }}
                 </span>
+                {{item.title}}
             </div>
         }
     </div>

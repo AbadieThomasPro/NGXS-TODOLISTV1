@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Store, select, createSelectMap } from '@ngxs/store';
+import { Store, createSelectMap } from '@ngxs/store';
 import { TodoModel, TodoState } from '../../store/todo.state';
-import { Observable } from 'rxjs';
+import { NgClass } from '@angular/common';
 import { ChangeStatus } from '../../store/todo.action';
 
 @Component({
   selector: 'app-list',
-  imports: [],
+  imports: [NgClass],
   templateUrl: './list.html',
   styleUrl: './list.scss'
 })
