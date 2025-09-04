@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store, createSelectMap } from '@ngxs/store';
 import { TodoModel, TodoState } from '../../store/todo.state';
 import { NgClass } from '@angular/common';
-import { ChangeStatus } from '../../store/todo.action';
+import { ChangeStatus, DeleteTodo } from '../../store/todo.action';
 
 @Component({
   selector: 'app-list',
@@ -40,6 +40,10 @@ export class List {
 
   change(item: TodoModel) {
     this.store.dispatch(new ChangeStatus(item, !item.isActive));
+  }
+
+  delete(index: number) {
+    this.store.dispatch(new DeleteTodo(index));
   }
 
 }

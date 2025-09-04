@@ -15,7 +15,7 @@ export class ChangeStatus {
     ) {}
 }
 
-export class Delete {
+export class DeleteTodo {
     static readonly type = `${ACTION_SCOPE} Delete`;
     constructor(public id: number) {}
 }

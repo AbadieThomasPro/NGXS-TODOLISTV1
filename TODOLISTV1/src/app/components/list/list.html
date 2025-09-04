@@ -14,6 +14,9 @@
     <div class="list">
         @for (item of selector.items(); track trackById($index, item)) {
             <div class="todo-item  align-items-center justify-content-between" (click)="change(item)" >
+                <button class="btn btn-danger btn-sm" (click)="delete(item.id)">
+                    ×
+                </button>
                 <!-- <span [class.active]="item.isActive" [class.done]="!item.isActive"> -->
                 <span class="badge"
                 [ngClass]="item.isActive ? 'text-bg-warning' : 'text-bg-success' ">
